@@ -28,6 +28,7 @@
  - Create textfile in same folder/directory and populate with urls
  	#Note: Make sure:
  		- each url is in a seperate line
+ 		- Dont worry about empty lines they will be ignored
  		- change the name of the textfile in the code to its name on your machine
  - cd folder/directory path
  - python3 SiteReviewScraoe.py
