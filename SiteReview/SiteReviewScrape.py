@@ -55,7 +55,7 @@ delay = 4
 
 # Chromedriver path
 # Make sure to change to path on your machine before running
-chromedriver_path = '/Users/csoc/Desktop/chromedriver/chromedriver'
+chromedriver_path = '/Users/user/Desktop/chromedriver/chromedriver'
 
 siteReview = 'https://sitereview.bluecoat.com/#/lookup-result/'
 
