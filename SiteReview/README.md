@@ -18,9 +18,15 @@
  	        
           Make sure it is the same version as your Chrome browser
  - Python3
- - install requests mdoule (pip3 install requests)
- - install selenium module (pip3 install selenium)
- - install pandas module   (pip3 install pandas)
+ - install requests mdoule 
+            
+            pip3 install requests
+ - install selenium module 
+            
+            pip3 install selenium
+ - install pandas module   
+            
+            pip3 install pandas
 
  ## To Run:
  - Download SiteReviewScrape.py
