@@ -55,19 +55,21 @@ delay = 4
 
 # Chromedriver path
 # Make sure to change to path on your machine before running
-chromedriver_path = '/Users/user/Desktop/chromedriver/chromedriver'
+chromedriver_path = '/Users/csoc/Desktop/chromedriver/chromedriver'
 
 siteReview = 'https://sitereview.bluecoat.com/#/lookup-result/'
 
 # Text file contianing URls
 # Make sure to change the name to its name on your machine
 with open("domains2.txt") as f:
-	for line in f:
-		line = line.lower()
-		urls.append(line)
-		line = line.replace('/', '%252F')
-		line = line.replace(':', '%253A')
-		search.append(siteReview + line)
+	lines = (line.rstrip() for line in f)
+	lines = (line for line in lines if line)
+	for line in lines:
+			line = line.lower()
+			urls.append(line)
+			line = line.replace('/', '%252F')
+			line = line.replace(':', '%253A')
+			search.append(siteReview + line)
 
 urls = [x.strip() for x in urls]
 search = [x.strip() for x in search]
