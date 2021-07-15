@@ -23,7 +23,7 @@
  - install pandas module   (pip3 install pandas)
 
  ## To Run:
- - Download SiteReviewScraoe.py
+ - Download SiteReviewScrape.py
  - Create textfile in same folder/directory and populate with urls
  	
         Make sure:
