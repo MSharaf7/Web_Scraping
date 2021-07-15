@@ -32,10 +32,12 @@
  - Download SiteReviewScrape.py
  - Create textfile in same folder/directory and populate with urls
  	
-        Make sure:
- 		- each url is in a seperate line
- 		- change the name of the textfile in the code to its name on your machine
- - cd folder/directory path
- - python3 SiteReviewScraoe.py
+ - Make sure:
+    - each url is in a seperate line
+    - Dont worry about empty lines they will be ignored
+    - change the name of the textfile in the code to its name on your machine
+        
+- cd folder/directory path
+- python3 SiteReviewScraoe.py
 
-         Before running make sure to change the chromedriver path in the code to its path on your machine
+  Before running make sure to change the chromedriver path in the code to its path on your machine
