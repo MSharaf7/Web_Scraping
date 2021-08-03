@@ -56,13 +56,13 @@ delay = 4
 
 # Chromedriver path
 # Make sure to change to path on your machine before running
-chromedriver_path = '/Users/csoc/Desktop/chromedriver/chromedriver'
+chromedriver_path = '/Users/Marwan/Documents/Programs/chromedriver'
 
 siteReview = 'https://sitereview.bluecoat.com/#/lookup-result/'
 
 # Text file contianing URls
 # Make sure to change the name to its name on your machine
-with open("domains2.txt") as f:
+with open("domains_augest01_last30.txt") as f:
 	lines = (line.rstrip() for line in f)
 	lines = (line for line in lines if line)
 	for line in lines:
@@ -77,21 +77,22 @@ search = [x.strip() for x in search]
 
 #Pull information from Site Review
 for info, url in zip(search, urls):	
-
-	if(('Err' * 5) in ''.join(map(str, risk))):
-		print('5 Consecutive Errors have occurred, program is terminating.\n')
-		break
-	
-	urls_used.append(url)
-	
-	driver = webdriver.Chrome(executable_path=chromedriver_path)
-	driver.get(info)
-
-	time.sleep(delay)
-
-	length = (len(driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span')))
-
 	try:
+		
+		if(('Err' * 5) in ''.join(map(str, risk))):
+			print('5 Consecutive Errors have occurred, program is terminating.\n')
+			break
+		
+		urls_used.append(url)
+		
+		driver = webdriver.Chrome(executable_path=chromedriver_path)
+		driver.get(info)
+
+		time.sleep(delay)
+
+		length = (len(driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span')))
+
+	
 		if driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/p/span[1]')[0].text == 'This URL has not yet been rated':
 			
 			#Pull Category
