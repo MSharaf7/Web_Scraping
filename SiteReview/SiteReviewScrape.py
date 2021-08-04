@@ -56,13 +56,13 @@ delay = 4
 
 # Chromedriver path
 # Make sure to change to path on your machine before running
-chromedriver_path = '/Users/Marwan/Documents/Programs/chromedriver'
+chromedriver_path = '/Users/csoc/Desktop/chromedriver/chromedriver'
 
 siteReview = 'https://sitereview.bluecoat.com/#/lookup-result/'
 
 # Text file contianing URls
 # Make sure to change the name to its name on your machine
-with open("domains_augest01_last30.txt") as f:
+with open("domains2.txt") as f:
 	lines = (line.rstrip() for line in f)
 	lines = (line for line in lines if line)
 	for line in lines:
@@ -92,7 +92,7 @@ for info, url in zip(search, urls):
 
 		length = (len(driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span')))
 
-	
+		#If URL has no rating
 		if driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/p/span[1]')[0].text == 'This URL has not yet been rated':
 			
 			#Pull Category
@@ -119,11 +119,17 @@ for info, url in zip(search, urls):
 			category.append(multiCategory)
 
 			#Pull Last Time Rated
-			date_element = driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span[{}]/span'.format(length))[0] 
-			date = date_element.text
-			date = date.split(':',1)[1]
-			date = date.split('?')[0]
-			lastCheck.append(date)
+			try:
+				date_element = driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span[{}]/span'.format(length))[0] 
+				date = date_element.text
+				date = date.split(':',1)[1]
+				date = date.split('?')[0]
+				lastCheck.append(date)
+			
+			except Exception as e:
+				date_element = driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[2]/span[{}]/span'.format(length))[0] 
+				date = date_element.text
+				lastCheck.append(date)
 
 			#Pull Risk or Not
 			if driver.find_elements_by_xpath('//*[@id="submissionForm"]/span/span[1]/div/div[1]/span')[0].text == 'This URL is categorized as a security risk':
