@@ -1,5 +1,5 @@
 
-# Site Review Web Scrapping 
+# Site Review Web Scraping 
   
   Give a list of urls in a textfile, the program will heck each url on Symantec Site Review
   
